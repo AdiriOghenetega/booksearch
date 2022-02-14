@@ -1,0 +1,29 @@
+#show{
+border: 20px solid greenyellow;
+text-align: center;
+width: fit-content;
+border-radius: 1.5em;
+padding: 3em;
+background-image: url(./image-deep-earth.jpg);
+background-size: cover;
+color: greenyellow;
+font-size: x-large;
+text-decoration: wavy;
+}
+
+#animateContainer{
+    position: relative;
+    background-color: greenyellow;
+    height: 400px;
+    width: 400px;
+    
+
+}
+#animate{
+    position: absolute;
+    background-color: black;
+    border-radius: 4em;
+    height: 50px;
+    width: 50px;
+    
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body onload="showTime()" >
+
+
+
+<!-- <button type="button" onclick="document.write(5+6)" >Try it</button>
+
+    
+<section> -->
+            <!-- <p><input id="c" onkeyup="convert('C')">degrees celsius</p>
+            <p><input id="f" onkeyup="convert('F')">degrees fahrenheit</p>
+
+        </section>
+        <p>
+            <input type="text" id="demo" >
+        </p>
+        <p id="demo1"></p>
+        <button type="button" onclick="email()">click</button>
+        <p id='timely'></p>
+        <button type="button" onclick="myTime()">compare time</button>
+        <p id='show'></p>
+        <p id="demo2" >
+        </p>
+        <button id="button" >click me</button> -->
+        <!-- <p id="demo3" >Click button below to access facebook </p>
+        <button id="button1" >click me</button>
+
+        <p id="demo4" ></p>
+        <button onclick="sw.start()" >start</button>
+        <button onclick="sw.stop()" >stop</button> -->
+
+        <!-- validating a form -->
+        <!-- <form name="form1" onsubmit="return validateNumber()" >
+        Input number: <input type="text" name="num1">
+        <input type="submit" value="submit"  >
+
+        </form> -->
+
+        <div id="animateContainer"  onmouseover="glide()" >
+            <div id="animate" ></div>
+        </div>
+        
+    
+
+        
+        <script>
+            function showTime(){
+                text= '';
+                const d= new Date();
+                year= d.getFullYear();
+                month= d.getMonth();
+                date = d.getDate();
+                hour=d.getHours();
+                minute=d.getMinutes();
+                seconds= d.getSeconds();
+                mili = d.getMilliseconds();
+                //adding zero in front of figures < 10
+                minute= checkTime(minute);
+                seconds= checkTime(seconds);
+                month= checkTime(month);
+                date = checkTime(date);
+                hour = checkTime(hour);
+                
+                
+                text = `${year}-${month}-${date} ${hour}:${minute}:${seconds}:${mili}`;
+                
+                document.getElementById('show').innerHTML = text
+                
+                setTimeout(showTime, 1);
+            }
+            
+            function checkTime(i) {
+                if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10. adds 0 to the front of single numbers of hour , seconds , days etc
+                return i;
+            }
+            
+            
+            function myTime(){
+    let text= '';
+    let today = new Date();
+    let someday = new Date();
+    someday.setFullYear(2100);
+    today.setDate(today.getDate() + 50);
+    
+    if (someday == today) 
+    text = 'same day';
+    if (someday<today) 
+    text = 'day before';
+    if (someday>today) 
+    text = 'the future'
+    
+    document.getElementById('timely').innerHTML= text;
+    
+}
+
+function email(){
+    const result =  document.getElementById('demo1') ; 
+             result.innerHTML = 'valid email';
+           let text=  document.getElementById('demo').value ;
+           try{ 
+               if (text === '') throw 'input email address';
+               if (!text.includes('@')) throw 'Invalid email address';
+          }
+        catch (err) {
+            result.innerHTML = err;
+            }
+            finally{
+                //Block of code to be executed regardless of the try / catch result .  it overrides everything else
+            }
+        }
+        // converting celsius to fahrenheit and vice versa 
+        function convert(value){
+            let degree;
+            if (value=='C'){
+                degree= document.getElementById('c').value *9/5 + 32;
+            document.getElementById('f').value = Math.round(degree);
+        }else{ 
+            degree = (document.getElementById('f').value-32) *5/9;
+            document.getElementById('c').value = Math.round(degree);}
+
+        }
+    </script>
+<script src="./app.js"></script>
+
+</body>
+</html>
